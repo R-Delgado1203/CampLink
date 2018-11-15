@@ -7,7 +7,7 @@ CREATE TABLE signup_info (
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100),
-    --- password? VARCHAR(50),
+    p_password VARCHAR(50),
     PRIMARY KEY (id)
 );
 
@@ -15,7 +15,7 @@ CREATE TABLE profile_info (
     bootcamp_year VARCHAR(25),
     profile_pic VARCHAR(100),
     github VARCHAR(100),
-    portfolio VARCHAR(100),
+    portfolio VARCHAR(100), 
     favorite_language VARCHAR(50) NOT NULL,
     current_job VARCHAR(50),
     hiring BOOLEAN,
