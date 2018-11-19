@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS alumni_db;
 CREATE DATABASE alumni_db;
 
 USE alumni_db;
@@ -12,6 +13,7 @@ CREATE TABLE signup_info (
 );
 
 CREATE TABLE profile_info (
+    id INTEGER AUTO_INCREMENT NOT NULL,
     bootcamp_year VARCHAR(25),
     profile_pic VARCHAR(100),
     github VARCHAR(100),
