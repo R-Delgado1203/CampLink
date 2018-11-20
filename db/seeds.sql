@@ -1,4 +1,11 @@
 USE alumni_db;
 
-INSERT INTO alumni_info (first_name, last_name, bootcamp_year, email, github, portfolio, favorite_language, current_job, hiring, job_searching) 
-    VALUES ("Charlie", "Erling", "2019", "charlie.erling@gmail.com", "https://github.com/chuckz0r", "http://chuckz0r.github.io", "CSS", "Podcast Host", false, false);
+INSERT INTO
+	profile_info (bootcamp_year, profile_pic, github, portfolio, favorite_language, current_job, hiring, job_searching)
+		VALUES
+			(2018, "someURL", "https://github.com/R-Delgado1203", "https://r-delgado1203.github.io", "JavaScript", "Cloud Infrastructure Engineer", false, true);
+            
+INSERT INTO
+	signup_info (first_name, last_name, email, p_password) 
+		VALUES 
+			("Charlie", "Erling", "charlie.erling@gmail.com", "password");
