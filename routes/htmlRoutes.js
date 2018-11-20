@@ -3,15 +3,15 @@ var path = require("path");
 module.exports = function(app) {
 
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.render(path.join(__dirname, "../views/index.handlebars"));
   });
 
   app.get("/signup", function(req, res) {
-    res.sendFile(path.join(__dirname, "signup.html"));
+    res.render(path.join(__dirname, "../views/signup.handlebars"));
   });
 
   app.get("/profile", function(req, res) {
-    res.sendFile(path.join(__dirname, "profile.html"));
+    res.render(path.join(__dirname, "../views/update-profile.handlebars"));
   });
 
   // Render 404 page for any unmatched routes
