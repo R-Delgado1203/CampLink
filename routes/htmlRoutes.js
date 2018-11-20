@@ -10,7 +10,7 @@ module.exports = function(app) {
     res.render(path.join(__dirname, "../views/signup.handlebars"));
   });
 
-  app.get("/profile", function(req, res) {
+  app.get("/updateprofile", function(req, res) {
     res.render(path.join(__dirname, "../views/update-profile.handlebars"));
   });
 
