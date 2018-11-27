@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function (app) {
   // find all users
-  app.get("/api/users", function (req, res) {
+  app.get("/api/search/users", function (req, res) {
     db.user.findAll({})
       .then(function (dbUsers) {
         res.json(dbUsers);
@@ -10,7 +10,7 @@ module.exports = function (app) {
   });
 
   //search via first name
-  app.get("/api/search/user/:firstName", function (req, res) {
+  app.get("/api/search/users/first_name/:firstName", function (req, res) {
     db.user.findAll({
       where: {
         first_name: req.params.firstName
@@ -22,7 +22,7 @@ module.exports = function (app) {
   });
 
   //search via last name
-  app.get("/api/search/user/:lastName", function (req, res) {
+  app.get("/api/search/users/last_name/:lastName", function (req, res) {
     db.user.findAll({
       where: {
         last_name: req.params.lastName
@@ -34,10 +34,10 @@ module.exports = function (app) {
   });
 
   //search via year
-  app.get("/api/search/user/:year", function (req, res) {
+  app.get("/api/search/users/year/:year", function (req, res) {
     db.user.findAll({
       where: {
-        bootcamp_year: req.params.year
+        year: req.params.year
       }
     })
       .then(function (dbUser) {
@@ -45,7 +45,7 @@ module.exports = function (app) {
       });
   });
 
-  app.get("/api/search/user/:language", function (req, res) {
+  app.get("/api/search/users/:language", function (req, res) {
     db.profile_data.findAll({
       where: {
         favorite_language: req.params.language

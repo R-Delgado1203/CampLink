@@ -10,8 +10,8 @@ module.exports = function(app) {
     res.render(path.join(__dirname, "../views/signup.handlebars"));
   });
 
-  app.get("/updateprofile", function(req, res) {
-    res.render(path.join(__dirname, "../views/update-profile.handlebars"));
+  app.get("/profile", function(req, res) {
+    res.render(path.join(__dirname, "../views/profile.handlebars"));
   });
 
   // Render 404 page for any unmatched routes

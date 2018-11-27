@@ -1,3 +1,5 @@
+<title>Signup</title>
+
 <div class="container">
   <div class="row">
     <div class="col s12 center">
@@ -56,11 +58,12 @@
     }
     else {
       let newUser = {
-        firstName: $('#add_user [name=first_name').val().trim(),
-        lastName: $('#add_user [name=last_name]').val().trim(),
+        first_name: $('#add_user [name=first_name').val().trim(),
+        last_name: $('#add_user [name=last_name]').val().trim(),
         year: '1234',
         email: $('#add_user [name=email]').val().trim(),
         password: $('#add_user [name=password]').val().trim(),
+        
       };
       console.log(newUser);
       $.ajax("/api/signup", {
