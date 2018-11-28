@@ -11,18 +11,29 @@ module.exports = function(app) {
     res.render(path.join(__dirname, "../views/signup.handlebars"));
   });
 
-  app.get("/profile", function(req, res) {
-    res.render(path.join(__dirname, "../views/profile.handlebars"));
+  app.get("/profile/:username", function(req, res) {
+    db.user.findAll({
+      where: {
+        username: req.params.username
+      }
+    })
+      .then(function (data) {
+        var userData = {
+          users: data
+        }
+        res.render('profile', userData);
+      });
+    //res.render(path.join(__dirname, "../views/profile.handlebars"));
   });
 
   //page to display all profiles
-  app.get("/cohort", function (req, res) {
+  app.get("/directory", function (req, res) {
     db.user.findAll({})
       .then(function (data) {
         var userData = {
           users: data
         }
-        res.render('cohort', userData);
+        res.render('directory', userData);
       });
   });
 
