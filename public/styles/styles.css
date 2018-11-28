@@ -1,7 +1,19 @@
 .list-group-item {
-    line-height: 2.5;
-  }
-  
-  .nav-wrapper {
-    background-color: #c72227;
+  line-height: 2.5;
+}
+.nav-wrapper {
+  background-color: #c72227;
+  font-family: 'Ubuntu Mono', monospace;
+}
+.btn{
+  background-color:#c72227;
+}
+.btn:hover {
+  background-color: maroon;
+}
+.btn:active{
+  background-color:#c72227;
+}
+.btn:focus{
+  background-color: #c72227;
 }
