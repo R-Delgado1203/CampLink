@@ -5,22 +5,22 @@
     <div class="nav-wrapper">
         <a href="#" class="brand-logo">CampLink</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">Sign In</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Cohorts</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/directory">Directory</a></li>
+            <li><a href="/signup">Sign Up</a></li>
         </ul>
     </div>
 </nav><br>
+{{#each users}}
 <div class="container">
     <div class="row" id="profile-holder">
         <div class="col-3 left" id="picture-holder">
-            <img src="https://via.placeholder.com/250">
+            <img src="{{this.profile_pic}}">
 
         </div>
         <div class="col-9 right">
-            <p class="name">Charlie Erling</p>
-            <p class="cohort">July 2018 M/W</p>
-            <p class="othershit">Other Shit</p>
+            <p class="name">{{this.first_name}} {{this.last_name}}</p>
+            <p class="year">{{this.year}}</p>
         </div>
     </div>
 </div>
@@ -28,22 +28,19 @@
 <div class="container">
     <div class=row>
         <div class="col-4">Contact Info<br>
-            Github:<br>
-            Portfolio:<br>
-            Email:<br>
-            Twitter:<br>
-            LinkedIn:<br>
+            Github: <a href={{this.github_link}}> {{this.github_link}} </a><br>
+            Portfolio: <a href={{this.portfolio_link}}> {{this.portfolio_link}}</a><br>
+            Email: <a> {{this.email}}</a><br>
         </div>
         <div class="col-4">Coding Info<br>
-            Project Spotlight:<br>
-            Coding Pals? wtf am i doing:<br>
-
+            Languages: {{this.languages}} <br>
         </div>
         <div class="col-4">Employment Info<br>
-            Current Job: <br>
-            Looking to Hire?: <br>
-            Looking for Work?: <br>
-            Languages: <br>
+            Current Job: {{this.current_job}}<br>
+            Looking to Hire? {{this.is_hiring}}<br>
+            Looking for Work? {{this.searching_for_work}}<br>
+
         </div>
     </div>
 </div>
+{{/each}}

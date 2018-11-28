@@ -14,6 +14,10 @@ module.exports = function (sequelize, DataTypes) {
           len: [1, 20]
         }
       },
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       year: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -26,13 +30,6 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
         validate: {
           len: [1, 50]
-        }
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [8, 20]
         }
       },
       profile_pic: {
