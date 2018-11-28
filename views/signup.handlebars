@@ -1,83 +1,141 @@
-<title>Signup</title>
+  <title>Signup</title>
 
-<div class="container">
-  <div class="row">
-    <div class="col s12 center">
-      <img class="responsive-img" src="images/camplink.png">
-      <p>A networking application for graduates of the UofA Coding Boot Camp.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center">
+                <img class="responsive-img" src="images/camplink.png">
+                <p>A networking application for graduates of the UofA Coding Boot Camp.</p>
+            </div>
+        </div>
+        <div class="row" id="formDiv">
+            <form class="col s12" id="add_user" action="/signup" method="POST">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input name="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="bootcamp_year" type="text" class="validate">
+                        <label for="bootcamp_year">Bootcamp Year</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="profile_pic" type="text" class="validate">
+                        <label for="profile_pic">250x250px Profile Picture URL</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="github" type="text" class="validate">
+                        <label for="github">Github URL</label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="portfolio" type="text" class="validate">
+                        <label for="portfolio">Portfolio URL</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="favorite_language" type="text" class="validate">
+                        <label for="favorite_language">Favorite Programming Language</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="current_job" type="text" class="validate">
+                        <label for="current_job">Current Job</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                    <button id="createUserBtn" class="btn waves-effect waves-light" type="submit">Submit</button>
+                </div>
+            </form>
+            <h2 class="center-align" id="successMsg"></h2>
+        </div>
     </div>
-  </div>
-  <div class="row" id="formDiv">
-    <form class="col s12" id="add_user" action="/signup" method="POST">
-      <div class="row">
-        <div class="input-field col s6">
-          <input name="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input name="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input name="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input name="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-        <button id="createUserBtn" class="btn waves-effect waves-light" type="submit">Submit</button>
-      </div>
-    </form>
-    <h2 class="center-align" id="successMsg"></h2>
-  </div>
-</div>
 
 
 
 
-<script type="text/javascript">
-  $('#add_user').on('submit', function (e) {
-    e.preventDefault();
+    <script type="text/javascript">
+        $('#add_user').on('submit', function (e) {
+            e.preventDefault();
+            if ($('#add_user [name=first_name').val().trim() < 1) {
+                alert("Please Enter a First Name");
+            }
+            else if ($('#add_user [name=last_name]').val().trim() < 1) {
+                alert("Please Enter a Last Name");
+            }
+            else if ($('#add_user [name=email]').val().trim() < 1) {
+                alert("Please Enter an Email");
+            }
+            else if ($('#add_user [name=password]').val().trim() < 8) {
+                alert("Password Length Must Be 8-20 Characters")
+            }
+            else if ($('#add_user [name=profile_pic]').val().trim() < 8) {
+                alert("Please enter a URL")
+            }
+            else if ($('#add_user [name=github]').val().trim() < 8) {
+                alert("Please enter a URL")
+            }
+            else if ($('#add_user [name=portfolio]').val().trim() < 8) {
+                alert("Please enter a URL")
+            }
+            else if ($('#add_user [name=favorite_language]').val().trim() < 2) {
+                alert("Please enter a Programming Language")
+            }
+            else if ($('#add_user [name=current_job]').val().trim() < 3) {
+                alert("Please enter your current job")
+            }
+            else {
+                let newUser = {
+                    first_name: $('#add_user [name=first_name').val().trim(),
+                    last_name: $('#add_user [name=last_name]').val().trim(),
+                    year: '1234',
+                    email: $('#add_user [name=email]').val().trim(),
+                    password: $('#add_user [name=password]').val().trim(),
+                    profile_pic: $('#add_user [name=profile_pic').val().trim(),
+                    github: $('#add_user [name=github').val().trim(),
+                    portfolio: $('#add_user [name=portfolio').val().trim(),
+                    favorite_language: $('#add_user [name=favorite_language').val().trim(),
+                    current_job: $('#add_user [name=current_job').val().trim(),
 
-    if ($('#add_user [name=first_name').val().trim() < 1) {
-      alert("Please Enter a First Name");
-    }
-    else if ($('#add_user [name=last_name]').val().trim() < 1) {
-      alert("Please Enter a Last Name");
-    }
-    else if ($('#add_user [name=email]').val().trim() < 1) {
-      alert("Please Enter an Email");
-    }
-    else if ($('#add_user [name=password]').val().trim() < 8) {
-      alert("Password Length Must Be 8-20 Characters")
-    }
-    else {
-      let newUser = {
-        first_name: $('#add_user [name=first_name').val().trim(),
-        last_name: $('#add_user [name=last_name]').val().trim(),
-        year: '1234',
-        email: $('#add_user [name=email]').val().trim(),
-        password: $('#add_user [name=password]').val().trim(),
-        
-      };
-      console.log(newUser);
-      $.ajax("/api/signup", {
-        type: "POST",
-        data: newUser
-      }).then(
-        function () {
-          console.log("created new user");
-          // Reload the page to get the updated list
-          $("form").hide();
-          $("#successMsg").append('Account Created Successfully!');
-          //location.assign()
-        }
-      );
-    };
-  });
-</script>
+
+
+                };
+                console.log(newUser);
+                $.ajax("/api/signup", {
+                    type: "POST",
+                    data: newUser
+                }).then(
+                    function () {
+                        console.log("created new user");
+                        // Reload the page to get the updated list
+                        $("form").hide();
+                        $("#successMsg").append('Account Created Successfully!');
+                        //location.assign()
+                    }
+                );
+            };
+        });
+    </script>

@@ -1,5 +1,5 @@
 USE alumni_db;
-
+SELECT * FROM users;
 INSERT INTO
 	profile_info (bootcamp_year, profile_pic, github, portfolio, favorite_language, current_job, hiring, job_searching)
 		VALUES
