@@ -23,39 +23,37 @@
         <form class="col s12" id="add_user" action="/signup" method="POST">
             <div class="row">
                 <div class="input-field col s6">
-                    <input name="first_name" type="text" class="validate">
+                    <input name="first_name" type="text" class="validate" required>
                     <label for="first_name">First Name</label>
                 </div>
                 <div class="input-field col s6">
-                    <input name="last_name" type="text" class="validate">
+                    <input name="last_name" type="text" class="validate" required>
                     <label for="last_name">Last Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input name="email" type="email" class="validate">
+                    <input name="email" type="email" class="validate" required>
                     <label for="email">Email</label>
                 </div>
                 <div class="input-field col s6">
-                    <input name="bootcamp_year" type="number" class="validate" min="2010" max="2030">
+                    <input name="bootcamp_year" type="number" class="validate" min="2010" max="2030" required>
                     <label for="bootcamp_year">Bootcamp Year</label>
                 </div>
             </div>
-
             <div class="row">
                 <div class="input-field col s6">
                     <input name="profile_pic" type="url" class="validate">
                     <label for="profile_pic">250x250px Profile Picture URL</label>
                 </div>
                 <div class="input-field col s6">
-                    <input name="github" type="url" class="validate">
+                    <input name="github" type="url" class="validate" required>
                     <label for="github">Github URL</label>
                 </div>
             </div>
-
             <div class="row">
                 <div class="input-field col s6">
-                    <input name="portfolio" type="url" class="validate">
+                    <input name="portfolio" type="url" class="validate" required>
                     <label for="portfolio">Portfolio URL</label>
                 </div>
                 <div class="input-field col s6">
@@ -85,8 +83,7 @@
 <script type="text/javascript">
     $('#add_user').on('submit', function (e) {
         e.preventDefault();
-
-        let user_name = $('#add_user [name=last_name]').val().trim() + Math.floor(Math.random()*10001);
+        let user_name = $('#add_user [name=last_name]').val().trim() + Math.floor(Math.random() * 10001);
         let newUser = {
             first_name: $('#add_user [name=first_name').val().trim(),
             last_name: $('#add_user [name=last_name]').val().trim(),
@@ -94,10 +91,10 @@
             year: $('#add_user [name=bootcamp_year]').val(),
             email: $('#add_user [name=email]').val().trim(),
             profile_pic: $('#add_user [name=profile_pic').val().trim(),
-            github: $('#add_user [name=github').val().trim(),
-            portfolio: $('#add_user [name=portfolio').val().trim(),
-            favorite_language: $('#add_user [name=favorite_language').val().trim(),
-            current_job: $('#add_user [name=current_job').val().trim(),
+            github_link: $('#add_user [name=github').val().trim(),
+            portfolio_link: $('#add_user [name=portfolio').val().trim(),
+            languages: $('#add_user [name=favorite_language').val().trim(),
+            current_job: $('#add_user [name=current_job').val().trim()
         };
 
         if (newUser.first_name === "" || newUser.last_name === "" || newUser.email === "" || newUser.year === "" || newUser.github === "" || newUser.portfolio === "") {
@@ -114,7 +111,6 @@
                     // Reload the page to get the updated list
                     $("form").hide();
                     $("#successMsg").append('Account Created Successfully!');
-                    //location.assign()
                 }
             );
         };
