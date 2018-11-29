@@ -23,7 +23,6 @@ module.exports = function(app) {
         }
         res.render('profile', userData);
       });
-    //res.render(path.join(__dirname, "../views/profile.handlebars"));
   });
 
   //page to display all profiles
